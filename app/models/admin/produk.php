@@ -29,18 +29,30 @@ class produk extends CI_Model {
 		return $rs->result();
 	}
 
-	function tambahproduk($data)
+	function tambahproduk()
 	{
+		$idProduk = $this->input->post('idProduk');
+		$idKategori = $this->input->post('idKategori');
+		$namaProduk = $this->input->post('namaProduk');
+		$ukuran = $this->input->post('ukuran');
+		$harga = $this->input->post('harga');
+		$stok = $this->input->post('stok');
+		$deskripsi = $this->input->post('deskripsi');
+		$gambar = $this->input->post('gambar');
+
 		$data = array(
-		'idProduk' => $this->input->post('idProduk'),
-		'idKategori' => $this->input->post('idKategori'),
-		'namaProduk' => $this->input->post('namaProduk'),
-		'ukuran' => $this->input->post('ukuran'),
-		'harga' => $this->input->post('harga'),
-		'stok' => $this->input->post('stok'),
-		'deskripsi' => $this->input->post('deskripsi')
-		);
-		return $this->db->insert('produk', $data);
+				'idProduk' => $idProduk,
+				'idKategori' => $idKategori,
+				'namaProduk' => $namaProduk,
+				'ukuran' => $ukuran,
+				'harga' => $harga,
+				'stok' => $stok,
+				'deskripsi' => $deskripsi,
+				'gambar' => $gambar
+				//'agama' => $agama,
+				//'kddepartemen' => $kddepartemen
+			);
+			$this->db->insert('produk',$data);
 	}
 }
 ?>

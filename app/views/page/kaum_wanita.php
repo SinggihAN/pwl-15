@@ -57,7 +57,6 @@
           <tr><th></th></tr>
         </tfoot>
         <tbody>
-          <?php foreach ($kaum_wanita as $p): ?>
           <tr>
             <td width="80%">
             <?php foreach ($kaum_wanita as $p): ?>
@@ -70,7 +69,6 @@
             <?php endforeach ?>
             </td>
           </tr>
-          <?php endforeach?>
         </tbody>
       </table>
     </div>

@@ -6,7 +6,7 @@
 		<div class="btn-group">
 		<a href="<?php echo site_url()?>/admin/dashboard/Produk" class="btn btn-info">Data Produk</a>
 		</div>
-		<a href="<?php echo site_url()?>/admin/dashboard/tambahProduk" class="btn btn-info">Tambah Produk</a>
+		<a href="<?php echo site_url()?>/admin/dashboard/tambahproduk" class="btn btn-info">Tambah Produk</a>
 		</div>
 	</div>
 </p>

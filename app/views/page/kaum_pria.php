@@ -57,20 +57,18 @@
           <tr><th></th></tr>
         </tfoot>
         <tbody>
-          <?php foreach ($kaum_pria as $p): ?>
           <tr>
             <td width="80%">
-            <?php foreach ($kaum_pria as $p): ?>
+          <?php foreach ($kaum_pria as $p): ?>
             <div class="img_thumb">
               <a href=""><img src="<?php echo base_url()?>assets/img/produk/<?php echo $p->gambar?>"></a>
               <p align="center"><a href=""><?php echo $p->namaProduk?></a> - <?php echo $p->idProduk?><br />
               Size : <b><?php echo $p->ukuran?></b><br />
               Harga : <b>IDR <?php echo $p->harga?></b></p>
             </div>
-            <?php endforeach ?>
+          <?php endforeach?>
             </td>
           </tr>
-          <?php endforeach?>
         </tbody>
       </table>
     </div>

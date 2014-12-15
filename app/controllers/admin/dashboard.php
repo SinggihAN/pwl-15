@@ -47,8 +47,14 @@ class Dashboard extends CI_Controller {
 	}
 	public function tambahproduk()
 	{
-		$this->data['page']  = 'tambahproduk';
-		$this->data['title'] = 'tambahproduk';
+		if($this->input->post('submit')){
+			$this->load->model('admin/produk');
+			$this->produk->tambahproduk();
+			//$this->do_upload();
+			redirect('admin/dashboard/produk');
+	}
+		$this->data['page']  = 'tambahproduk2';
+		$this->data['title'] = 'tambahproduk2';
 		$this->load->view('admin/dashboard', $this->data);
 	}
 	public function proses_tambahproduk()
