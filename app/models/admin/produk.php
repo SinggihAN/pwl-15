@@ -1,6 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class produk extends CI_Model {
 
+	public function __construct()
+	{
+		$this->load->database();
+	}
 	public function get_produk(){
 
 		$rs = $this->db->get('produk');
@@ -25,9 +29,18 @@ class produk extends CI_Model {
 		return $rs->result();
 	}
 
-	function insert_data_produk($data)
+	function tambahproduk($data)
 	{
-		$this->db->insert('produk',$data);
+		$data = array(
+		'idProduk' => $this->input->post('idProduk'),
+		'idKategori' => $this->input->post('idKategori'),
+		'namaProduk' => $this->input->post('namaProduk'),
+		'ukuran' => $this->input->post('ukuran'),
+		'harga' => $this->input->post('harga'),
+		'stok' => $this->input->post('stok'),
+		'deskripsi' => $this->input->post('deskripsi')
+		);
+		return $this->db->insert('produk', $data);
 	}
 }
 ?>

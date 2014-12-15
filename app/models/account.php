@@ -22,18 +22,18 @@ class Account extends CI_Model {
 
 	public function do_login(){
 
-		$query = "Select * from admin where username='$this->usr' and password=md5('$this->pwd')";
+		$query = "Select * from user where username='$this->usr' and password=md5('$this->pwd')";
 		$result = $this->db->query($query);
 		$rows = $result->row_array();
 
 		if ($this->db->affected_rows() > 0) {
 
-			$this->usr_data['c_fullname'] = $rows['fullname'];
+			$this->usr_data['c_fullname'] = $rows['namaUser'];
 			$this->usr_data['c_lastlog']  = $rows['lastlog'];
-			$this->usr_data['c_id']  	  = $rows['idadmin'];
+			$this->usr_data['c_id']  	  = $rows['idUser'];
 
 			$this->set_cookie();
-			$this->_update_log($rows['idadmin']);
+			$this->_update_log($rows['idUser']);
 
             return true;
         } else {
@@ -56,8 +56,8 @@ class Account extends CI_Model {
 	}
 
 	public function get_admin($id){
-		$this->db->where('idadmin', $id);
-		$query = $this->db->get('admin');
+		$this->db->where('idUser', $id);
+		$query = $this->db->get('user');
 
 		return $query->row_array();
 	}
@@ -86,7 +86,7 @@ class Account extends CI_Model {
 	}
 
 	private function _update_log($id) {
-        $str = "update admin set lastlog=now() where idadmin=$id";
+        $str = "update user set lastlog=now() where idUser=$id";
         $query = $this->db->query($str);
 
         if ($this->db->affected_rows() > 0) {

@@ -1,5 +1,6 @@
 <section class="wrapper site-min-height">
-  <h3 align="center">Selamat datang di halaman administrator Administrator</h3>
+  <h3 align="center">Selamat datang di halaman administrator <strong><?php echo $cookie['c_fullname']?></strong></h3>
+  <p align="center">Terakhir login tgl <strong><?php echo $cookie['c_lastlog']?></strong></p>
    <div class="row mt">
      <div class="col-lg-12">
 <! -- 1st ROW OF PANELS -->

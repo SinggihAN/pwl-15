@@ -20,7 +20,7 @@ class Login extends CI_Controller {
 			}else{
 
 				if($this->account->do_login()){
-					header('location: '.site_url().'/dashboard');
+					header('location: '.site_url().'/admin/dashboard');
 				}else{
 					$data['error'] = 'User dan Password tidak sesuai,<br />silahkan periksa kembali';
 				}

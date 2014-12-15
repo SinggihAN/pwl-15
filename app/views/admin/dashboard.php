@@ -63,7 +63,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="profile.html"><img src="<?php echo base_url()?>assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Administrator</h5>
+              	  <h3 class="centered"><a href="<?php echo site_url()?>/admin/dashboard/profil"><?php echo $cookie['c_fullname']?></a></h3>
               	  	
                   <li class="mt">
                       <a href="<?php echo site_url()?>/admin/dashboard">
