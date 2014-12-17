@@ -44,4 +44,14 @@ class Home extends CI_Controller {
 		$this->data['title'] = 'Kaum Wanita';
 		$this->load->view('home', $this->data);
 	}
+
+	public function detailProduk($id)
+	{
+		$this->load->model('admin/produk');
+
+		$this->data['detailProduk'] = $this->produk->get_produk($id);
+		$this->data['page']  = 'detailProduk';
+		$this->data['title'] = 'Detail Produk';
+		$this->load->view('home', $this->data);
+	}
 }

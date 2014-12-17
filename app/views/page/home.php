@@ -21,7 +21,6 @@ Create your own design here Create your own design here Create your own design h
     <li><img src="<?php echo base_url()?>assets/img/produk/<?php echo $slider['gambar']; ?>" class="image"></li>
     
   </ul>  
-</div> 
-    <?php print_r($slider) ?>      
+</div>     
 </div>        
         

@@ -443,6 +443,29 @@ a.more{
 	text-decoration: none;
 	color:#666;
 }
+
+.img_detail{
+	width:300px;
+	height:auto;
+	float:left;
+	margin: 15px 0 0 15px;
+	border: #666 thin dashed;
+	background: #fff;
+}
+.img_detail img{
+	width:300px;
+	height: auto;
+}
+.img_detail p{
+	margin: 0 10px;
+}
+.img_detail a{
+	font-family:"Nexa Slab Regular";
+	font-size: 16px;
+	font-weight:lighter;
+	text-decoration: none;
+	color:#666;
+}
 .button {
 	width: 100px;
 	height: 60px;	

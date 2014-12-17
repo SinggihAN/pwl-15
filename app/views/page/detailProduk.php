@@ -51,23 +51,22 @@
         <div class="col-lg-12">
 <table id="" class="display" cellspacing="0" width="100%">
         <thead>
-          <tr><th></th></tr>
+          <tr><th></th><th></th></tr>
         </thead>
         <tfoot>
-          <tr><th></th></tr>
+          <tr><th></th><th></th></tr>
         </tfoot>
         <tbody>
           <tr>
-            <td width="80%">
-            <?php foreach ($kaum_wanita as $p): ?>
-            <div class="img_thumb">
-              <a href=""><img src="<?php echo base_url()?>assets/img/produk/<?php echo $p->gambar?>"></a>
-              <p align="center"><a href=""><?php echo $p->namaProduk?></a> - <?php echo $p->idProduk?><br />
-              Size : <b><?php echo $p->ukuran?></b><br />
-              Harga : <b>IDR <?php echo $p->harga?></b></p>
+            <td width="300px">
+            <div class="img_detail">
+              <a href=""><img src="<?php echo base_url()?>assets/img/produk/<?php echo $detailProduk['gambar']; ?>"></a>
             </div>
-            <?php endforeach ?>
             </td>
+            <td>
+              <p align="center"><h4><a href=""><?php echo $detailProduk['namaProduk']; ?></a> - <?php echo $detailProduk['idProduk']; ?></h4><br />
+              Size : <b><?php echo $detailProduk['ukuran']; ?></b><br />
+              Harga : <b>IDR <?php echo $detailProduk['harga']; ?>,00</b></p></td>
           </tr>
         </tbody>
       </table>

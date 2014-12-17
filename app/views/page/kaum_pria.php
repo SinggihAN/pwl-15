@@ -1,5 +1,5 @@
 <div id="product">
-  <h3>Fine Your Temptations here</h3>
+  <h3>Find Your Temptations here</h3>
   
   <form name="form1" method="post" action="" class="form1">
 
@@ -61,7 +61,7 @@
             <td width="80%">
           <?php foreach ($kaum_pria as $p): ?>
             <div class="img_thumb">
-              <a href=""><img src="<?php echo base_url()?>assets/img/produk/<?php echo $p->gambar?>"></a>
+              <a href="<?php echo site_url()?>/home/detailProduk/<?php echo $p->idProduk ?>"><img src="<?php echo base_url()?>assets/img/produk/<?php echo $p->gambar?>"></a>
               <p align="center"><a href=""><?php echo $p->namaProduk?></a> - <?php echo $p->idProduk?><br />
               Size : <b><?php echo $p->ukuran?></b><br />
               Harga : <b>IDR <?php echo $p->harga?></b></p>
