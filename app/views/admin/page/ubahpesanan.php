@@ -46,7 +46,8 @@
   <div class="row-lg-9">
     <div class="col-lg-12">
       <div class="form-panel">
-        <table class="table table-striped table-advance table-hover">
+        <form method="post"  action="<?php echo site_url()?>/admin/dashboard/statuspesanan/<?php $p->idOrder?>">
+          <table class="table table-striped table-advance table-hover">
           <h4><i class="fa fa-tags"></i> Pesanan</h4>
           <tbody>
             <tr>
@@ -85,15 +86,36 @@
             </tr>  
           </tbody>
         </table>
+            <?php $status= $p->status
+            ?>
         <div class="btn-group btn-group-justified">
-          <div class="btn-group">
-          <a href="" class="btn btn-info">Setujui dan Kirim Barang</a>
-          </div>
-          <div class="btn-group">
-          <a href="" class="btn btn-warning">Batalkan Pesanan</a>
-          </div>
+              <?php
+                if($status == 'Sedang Diproses'){
+                  echo '<div class="btn-group">
+                  <a href="'.site_url().'/admin/dashboard/statuspesanan/'.$p->idOrder.'" class="btn btn-info" >Setujui dan Kirim Barang</a>
+                  </div>';
+                  echo '<div class="btn-group">
+                  <input name="batalpesan" class="btn btn-danger" type="submit" value="Batalkan Pemesanan"/>
+                  </div>';
+                }elseif($status == 'Sedang Dikirim'){
+                  echo '<div class="btn-group">
+                  <a href="'.site_url().'/admin/dashboard/statuspesanan/'.$p->idOrder.'" class="btn btn-info" >Berhasil Dikirim dan Selesai</a>
+                  </div>';
+                  echo '<div class="btn-group">
+                  '.anchor('admin/dashboard/batalpesanan/'.$p->idOrder, 'Batalkan Pemesanan', array('class'=>'btn btn-danger', 'onclick'=>"return confirmDialog();")).'
+                  </div>';
+                }
+              ?>
+
+        </form>  
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+function confirmDialog() {
+    return confirm("Apakah anda yakin ingin membatalkan pesanan ini ?")
+}
+</script>

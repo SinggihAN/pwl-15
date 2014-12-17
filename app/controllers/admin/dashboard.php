@@ -121,6 +121,27 @@ class Dashboard extends CI_Controller {
 		redirect('admin/dashboard/pesanan');
 	}
 
+	function statuspesanan($id){
+		$this->load->model('admin/pesanan');
+		$status = $this->pesanan->get_pesanan_status($id);
+
+		if($status['status'] == 'Sedang Diproses'){
+			$this->pesanan->ubahstatusdikirim($id);
+			redirect('admin/dashboard/ubahpesanan/'.$id,'refresh');
+		}elseif($status['status'] == 'Sedang Dikirim'){
+			$this->pesanan->ubahstatusselesai($id);
+			redirect('admin/dashboard/ubahpesanan/'.$id,'refresh');
+		}
+	}
+
+	function batalpesanan($id){
+
+		$this->load->model('admin/pesanan');
+		$status = $this->pesanan->get_pesanan_status($id);
+		$this->pesanan->ubahstatusbatal($id);
+		redirect('admin/dashboard/pesanan/');
+	}
+
 	public function perusahaan(){
 		$this->load->model('admin/perusahaan');
 

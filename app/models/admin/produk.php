@@ -85,5 +85,25 @@ class produk extends CI_Model {
 			$this->db->where('idProduk',$id);
 			$this->db->update('produk',$data);
 	}
+		// Menghitung jumlah stok awal sebelum dikurangi (pada pemesanan)
+		function _stok_awal($idProduk){
+			$this->db->select('stok');
+			$this->db->from('produk');
+			$this->db->where('idProduk', $idProduk);
+			$hasil = $this->db->get();
+			if($hasil->num_rows() > 0){
+				return $hasil->row_array(); //return row sebagai associative array
+			}			
+		}
+		// Pengurangan stok barang, stok awal dikurangi jumlah pesanan
+	function kurangiStok($idProduk, $jum){
+			$stok_awal = $this->_stok_awal($idProduk);
+			$stok = $stok_awal['stok'] - $jum;
+			$data = array(
+				'stok' => $stok
+			);
+			$this->db->where("idProduk", $idProduk);
+			$this->db->update("produk", $data);		
+	}
 }
 ?>
