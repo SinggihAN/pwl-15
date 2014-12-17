@@ -18,11 +18,10 @@ Create your own design here Create your own design here Create your own design h
     <!--slideshow-->
 <div id="slider">  
   <ul>
-          <?php foreach ($home as $p): ?>
-    <li><img src="<?php echo base_url()?>assets/img/produk/<?php echo $p->gambar?>" class="image"></li>
-    <?php endforeach ?>
+    <li><img src="<?php echo base_url()?>assets/img/produk/<?php echo $slider['gambar']; ?>" class="image"></li>
+    
   </ul>  
 </div> 
-          
+    <?php print_r($slider) ?>      
 </div>        
         

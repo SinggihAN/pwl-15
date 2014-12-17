@@ -4,8 +4,9 @@
 <p>
 	<div class="btn-group btn-group-justified">
 		<div class="btn-group">
-		<a href="<?php echo site_url()?>/admin/dashboard/Produk" class="btn btn-info">Data Produk</a>
+		<a href="<?php echo site_url()?>/admin/dashboard/produk" class="btn btn-info">Data Produk</a>
 		</div>
+		<div class="btn-group">
 		<a href="<?php echo site_url()?>/admin/dashboard/tambahproduk" class="btn btn-info">Tambah Produk</a>
 		</div>
 	</div>
@@ -32,9 +33,9 @@
 										</div>
 										<div class="col-sm-6 col-xs-6 goright">
 										<p>
-										<a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-										<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></p>
-										</div>
+										<a href="<?php echo site_url()?>/admin/dashboard/ubahproduk/<?php echo $p->idProduk ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+										<?php echo anchor('admin/dashboard/hapusproduk/'.$p->idProduk, '<i class="fa fa-trash-o"></i>', array('class'=>'btn btn-danger btn-xs', 'onclick'=>"return confirmDialog();")); ?>
+										</p></div>
 									</div>
                       			</div>
 								<div class="row">
@@ -76,8 +77,8 @@
 										</div>
 										<div class="col-sm-6 col-xs-6 goright">
 										<p>
-										<a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-										<a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></p>
+										<a href="<?php echo site_url()?>/admin/dashboard/ubahproduk/<?php echo $p->idProduk ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+										<?php echo anchor('admin/dashboard/hapusproduk/'.$p->idProduk, '<i class="fa fa-trash-o"></i>', array('class'=>'btn btn-danger btn-xs', 'onclick'=>"return confirmDialog();")); ?></p>
 										</div>
 									</div>
                       			</div>
@@ -178,3 +179,8 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
+<script>
+function confirmDialog() {
+    return confirm("Apakah anda yakin ingin menghapus data ini ?")
+}
+</script>

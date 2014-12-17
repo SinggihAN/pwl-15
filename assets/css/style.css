@@ -23,10 +23,17 @@ ul li {
     list-style: none;
 }
 
-a, a:hover, a:focus {
+a {
+    color: #797979;
     text-decoration: none;
     outline: none;
 }
+a:hover {
+    color: #aeb2b7;
+    text-decoration: none;
+    outline: none;
+}
+
 ::selection {
 
     background: #68dff0;
@@ -238,6 +245,17 @@ ul.top-menu > li > .logout {
 #sidebar h5 {
 	color: #f2f2f2;
 	font-weight: 700;
+}
+#sidebar a {
+    color: #aeb2b7;
+}
+
+#sidebar a:hover {
+    color: #fff;
+}
+
+#sidebar a:focus {
+    color: #000;
 }
 
 #sidebar ul li {

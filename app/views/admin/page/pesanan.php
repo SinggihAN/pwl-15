@@ -31,9 +31,11 @@
                                   <td><?php echo $n->tglOrder?></td>
                                   <td><span class="<?php echo $s ?>"><?php echo $n->status?></span></td>
                                   <td>
-                                      <a href="<?php echo site_url().' /admin/dashboard/editpesanan/'. $n->idOrder ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                      <a href="<?php echo site_url().' /admin/dashboard/deletepesanan/'. $n->idOrder ?>" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></a>
-                                  </td>
+                                    <p>
+                                      <a href="<?php echo site_url()?>/admin/dashboard/ubahpesanan/<?php echo $n->idOrder ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                                      <?php echo anchor('admin/dashboard/hapusproduk/'.$n->idOrder, '<i class="fa fa-trash-o"></i>', array('class'=>'btn btn-danger btn-xs', 'onclick'=>"return confirmDialog();")); ?>
+                                    </p>
+                                </td>
                               </tr>
                                 <?php endforeach?>
                               </tbody>
@@ -42,3 +44,8 @@
                   </div><!-- /col-md-12 -->
                   </div>
                   </section>
+<script>
+function confirmDialog() {
+    return confirm("Apakah anda yakin ingin menghapus data ini ?")
+}
+</script>

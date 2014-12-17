@@ -21,7 +21,7 @@ class Home extends CI_Controller {
 	{
 		$this->load->model('admin/produk');
 
-		$this->data['home'] = $this->produk->get_produk();
+		$this->data['slider'] = $this->produk->get_slider();
 		$this->data['page']  = 'home';
 		$this->data['title'] = 'Home';
 		$this->load->view('home', $this->data);

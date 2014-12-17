@@ -31,6 +31,8 @@ class Account extends CI_Model {
 			$this->usr_data['c_fullname'] = $rows['namaUser'];
 			$this->usr_data['c_lastlog']  = $rows['lastlog'];
 			$this->usr_data['c_id']  	  = $rows['idUser'];
+			$this->usr_data['c_email']	  = $rows['email'];
+			$this->usr_data['c_username']	  = $rows['username'];
 
 			$this->set_cookie();
 			$this->_update_log($rows['idUser']);
@@ -50,6 +52,8 @@ class Account extends CI_Model {
         $sess['c_id']  = '';
         $sess['c_lastlog'] = '';
         $sess['c_fullname'] = '';
+        $sess['c_email'] = '';
+        $sess['c_username'] = '';
 
         $this->session->unset_userdata($sess);
         $this->session->sess_destroy();
@@ -74,6 +78,8 @@ class Account extends CI_Model {
         $sess['c_fullname'] = $this->session->userdata('c_fullname');
         $sess['c_lastlog']  = $this->session->userdata('c_lastlog');
         $sess['c_id']  = $this->session->userdata('c_id');
+        $sess['c_email']  = $this->session->userdata('c_email');
+        $sess['c_username']  = $this->session->userdata('c_username');
 
         return $sess;
 	}
