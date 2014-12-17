@@ -54,4 +54,23 @@ class Home extends CI_Controller {
 		$this->data['title'] = 'Detail Produk';
 		$this->load->view('home', $this->data);
 	}
+	
+	public function tentang_kami()
+	{
+		$this->load->model('admin/tentang');
+		
+		$this->data['page']  = 'tentang';
+		$this->data['title'] = 'Tentang Kami';
+		
+		$this->load->view('home', $this->data);
+	}
+	public function kontak()
+	{
+		$this->load->model('admin/kontak');
+		
+		$this->data['page']  = 'kontak';
+		$this->data['title'] = 'kontak';
+		
+		$this->load->view('home', $this->data);
+	}
 }

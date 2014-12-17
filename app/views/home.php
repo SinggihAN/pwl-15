@@ -98,7 +98,7 @@ Cufon.replace('h2', { fontFamily: 'GeosansLight' });
           <div class="menu_bawah">
         <ul>
         <li><a href="<?php echo site_url()?>">Home</a></li>
-        <li><a href="<?php echo site_url()?>/home/tentang">Tentang Kami</a></li>
+        <li><a href="<?php echo site_url()?>/home/tentang_kami">Tentang Kami</a></li>
         <li><a href="<?php echo site_url()?>/home/pemesanan">Cara Pemesanan</a></li>
         <li><a href="<?php echo site_url()?>/home/kontak">Hubungi Kami</a></li>
         </ul>
