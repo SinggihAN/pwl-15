@@ -73,4 +73,13 @@ class Home extends CI_Controller {
 		
 		$this->load->view('home', $this->data);
 	}
+	
+	public function pemesanan()
+	{
+		$this->load->model('admin/pemesanan');
+
+		$this->data['page']  = 'pemesanan';
+		$this->data['title'] = 'Cara Pemesanan';
+		$this->load->view('home', $this->data);
+	}
 }
