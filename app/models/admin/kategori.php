@@ -7,7 +7,15 @@ class kategori extends CI_Model {
 	}
   public function get_kategori(){
 
+	$this->db->join('jenisKelamin','jenisKelamin.idJenisKelamin = kategori.idJenisKelamin');
     $rs = $this->db->get('kategori');
+
+    return $rs->result();
+  }
+
+  public function get_jeniskelamin(){
+
+    $rs = $this->db->get('jenisKelamin');
 
     return $rs->result();
   }

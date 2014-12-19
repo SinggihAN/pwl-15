@@ -65,7 +65,7 @@
               <td><p><?php echo $p->namaProduk?></p></td>
               <td><p><?php echo $p->harga?></p></td>
               <td><p><?php echo $p->jumlah?></p></td>
-              <td><p><?php echo $p->totalHarga?></p></td>             
+              <td><p><?php echo $perbarang= ($p->harga * $p->jumlah)?></p></td>             
             </tr> 
             <?php endforeach ?>
             <tr>
@@ -74,7 +74,7 @@
               <th></th>
               <th></th>
               <th>Total Barang</th>
-              <th></th>
+              <th><?php echo $p->totalBarang?></th>
             </tr>
             <tr>
               <th></th>
@@ -82,7 +82,7 @@
               <th></th>
               <th></th>
               <th>Total Harga</th>
-              <th></th>
+              <th><?php echo $perbarang?></th>
             </tr>  
           </tbody>
         </table>

@@ -12,16 +12,20 @@
         </div>
       </div>
 <div class="form-group">
-         <label class="col-sm-2 col-sm-2 control-label">ID Jenis Kelamin</label>
+         <label class="col-sm-2 col-sm-2 control-label">Jenis Kelamin</label>
          <div class="col-sm-10">
-                              <input type="text" class="form-control" name="idJenisKelamin" />
+                <select name="idJenisKelamin" class="form-control">
+                  <?php foreach($jenisKelamin as $j):?>
+                  <option value='<?php echo $j->idJenisKelamin?>'><?php echo $j->jenisKelamin;?> </option>
+                  <?php endforeach ?>
+                </select>
         </div>
       </div>
     <p>
           <div class="btn-group">
           <?php echo form_submit(array('value'=>'Simpan','class' =>'btn btn-theme', 'name'=>'submit','id'=>'submit')); ?>
           </div>
-         <button type="reset" class="btn">Batal</button>
+         <button type="reset" class="btn">Reset</button>
      </div>
      </p>
 
@@ -38,14 +42,14 @@
     <tbody>
       <tr>
     <th>ID Kategori</th>
-    <th>ID Jenis Kelamin</th>
+    <th>Jenis Kelamin</th>
     <th>Nama kategori</th>
     <th>Kelola</th>
   </tr> 
           <?php foreach ($kategori as $k): ?>
         <tr>
           <td><p><?php echo $k->idKategori?></p></td>
-          <td><p><?php echo $k->idJenisKelamin?></p></td>
+          <td><p><?php echo $k->jenisKelamin?></p></td>
           <td><p><?php echo $k->namaKategori?></p></td>                                                                
           <td class="center">
                     <a href="<?php echo site_url()?>/admin/dashboard/ubahkategori/<?php echo $k->idKategori ?>" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>

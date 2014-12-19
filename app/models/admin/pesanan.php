@@ -19,6 +19,15 @@ class pesanan extends CI_Model {
 
 		return $rs->result();
 	}
+	public function get_produk_by_id(){
+
+		$this->db->join('pelanggan','pelanggan.idPelanggan = order.idPelanggan');
+		$this->db->join('detailOrder','detailOrder.idOrder = order.idOrder');
+		$this->db->join('produk','produk.idProduk = detailOrder.idProduk');
+		$rs = $this->db->get('order');
+
+		return $rs->row_array();
+	}
 	public function ubahstatusdikirim($id){
 
 			$data = array(
@@ -57,7 +66,21 @@ class pesanan extends CI_Model {
 	
 	function insert_data_pesanan($data)
 	{
+		$this->db->where('order.idOrder',$id);
 		$this->db->insert('order',$data);
+	}
+	function tambahpesanan($data_pelanggan, $data_order, $data_detail_order)
+	{
+		$this->db->insert('pelanggan', $data_pelanggan);
+
+	    $data_order['idPelanggan'] = $this->db->insert_id();
+
+	    $this->db->insert('order', $data_order);
+
+	    $data_detail_order['idOrder'] = $this->db->insert_id();
+
+		$this->db->insert('detailOrder', $data_detail_order);
+
 	}
 }
 ?>

@@ -23,9 +23,13 @@
                               <input type="text" class="form-control" name="idProduk" value="<?php echo $ubahproduk['idProduk']; ?>"/>
 					</div></div>
                           <div class="form-group">
-                              <label class="col-sm-2 col-sm-2 control-label">ID KATEGORI</label>
+                              <label class="col-sm-2 col-sm-2 control-label">KATEGORI</label>
                               <div class="col-sm-3">
-                              <input type="text" class="form-control" name="idKategori" value="<?php echo $ubahproduk['idKategori']; ?>" />
+								<select name="idKategori" class="form-control">
+									<?php foreach($kategori as $k):?>
+									<option value='<?php echo $k->idKategori?>'><?php echo $k->namaKategori;?> </option>
+									<?php endforeach ?>
+								</select>
 					</div></div>
                           <div class="form-group">
                               <label class="col-sm-2 col-sm-2 control-label">NAMA PRODUK</label>

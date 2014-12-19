@@ -1,5 +1,9 @@
-<div id="product">
+<div id="center">
+    <div class="title">
   <h3>Find Your Temptations here</h3>
+  </div>
+</div>
+<div id="product">
   
   <form name="form1" method="post" action="" class="form1">
 
@@ -61,8 +65,8 @@
             <td width="80%">
             <?php foreach ($kaum_wanita as $p): ?>
             <div class="img_thumb">
-              <a href=""><img src="<?php echo base_url()?>assets/img/produk/<?php echo $p->gambar?>"></a>
-              <p align="center"><a href=""><?php echo $p->namaProduk?></a> - <?php echo $p->idProduk?><br />
+              <a href="<?php echo site_url()?>/home/detailProduk/<?php echo $p->idProduk ?>"><img src="<?php echo base_url()?>assets/img/produk/<?php echo $p->gambar?>"></a>
+              <p align="center"><a href="<?php echo site_url()?>/home/detailProduk/<?php echo $p->idProduk ?>"><?php echo $p->namaProduk?></a> - <?php echo $p->idProduk?><br />
               Size : <b><?php echo $p->ukuran?></b><br />
               Harga : <b>IDR <?php echo $p->harga?></b></p>
             </div>
@@ -72,9 +76,6 @@
         </tbody>
       </table>
     </div>
- <div class="button">
-	<a href="">Next</a>
-</div>
 </div>
  
  <div class="cart">

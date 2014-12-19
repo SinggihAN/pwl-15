@@ -7,14 +7,14 @@
                   <span class="li_t-shirt"></span>
                   <h3><a href="<?php echo site_url()?>/admin/dashboard/produk">Produk</a></h3>
                         </div>
-                  <p>Total keseluruhan produk = <br />Total stok produk = </p>
+                  <p> Berisi data-data produk<br /> Anda dapat menambah, edit, dan hapus data produk. </p>
                       </div>
                       <div class="col-md-2 col-sm-2 box0">
                         <div class="box1">
                   <span class="li_tag"></span>
                   <h3><a href="<?php echo site_url()?>/admin/dashboard/kategori">Kategori</a></h3>
                         </div>
-                  <p>Total kategori = </p>
+                  <p> Berisi data kategori<br /> Anda dapat menambah, edit, dan hapus data kategori. </p>
                       </div>
                       <div class="col-md-2 col-sm-2 box0">
                         <div class="box1">
@@ -28,14 +28,14 @@
                   <span class="li_banknote"></span>
                   <h3><a href="<?php echo site_url()?>/admin/dashboard/pesanan">Pesanan</a></h3>
                         </div>
-                  <p>Total pesanan baru = <br />Total keseluruhan pesanan = .</p>
+                  <p>Berisi data pesanan<br /> Anda dapat mengubah status pesanan dan menghapus pesanan.</p>
                       </div>
                       <div class="col-md-2 col-sm-2 box0">
                         <div class="box1">
                   <span class="li_shop"></span>
                   <h3><a href="<?php echo site_url()?>/admin/dashboard/perusahaan">Perusahaan</a></h3>
                         </div>
-                  <p> </p>
+                  <p> Berisi data profil perusahaan<br /> Anda dapat mengubah data profil perusahaan. </p>
                       </div>
                     
                     </div><!-- /row mt -->  

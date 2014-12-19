@@ -42,22 +42,61 @@ class Dashboard extends CI_Controller {
 		$this->data['produk_male'] = $this->produk->get_produk_male();
 		$this->data['produk_female'] = $this->produk->get_produk_female();
 		$this->data['page']  = 'produk';
+		$data['error'] = '';
 		$this->data['title'] = 'Kelola Produk';
 		$this->load->view('admin/dashboard', $this->data);
 	}
-	public function tambahproduk()
-	{
-		if($this->input->post('submit')){
-			$this->load->model('admin/produk');
-			$this->produk->tambahproduk();
-			//$this->do_upload();
-			redirect('admin/dashboard/produk');
-	}
+	public function tambahproduk(){
+		
+		$this->load->model('admin/kategori');
+		$this->data['tambahproduk'] = $this->kategori->get_kategori();
 		$this->data['page']  = 'tambahproduk2';
-		$this->data['title'] = 'tambahproduk2';
-		$this->load->view('admin/dashboard', $this->data);
-	}
+		$this->data['title'] = 'Tambahkan Produk';
+		$this->data['error'] = '';
 
+		$this->load->view('admin/dashboard', $this->data);
+		
+	}
+	public function proses_tambah_produk(){
+
+		$this->load->library('form_validation');
+		
+		$namaProduk = $this->input->post('namaProduk',TRUE);
+		
+		// Konfigurasi Upload Gambar
+		    $config['upload_path'] = './assets/img/produk/';
+		    $config['allowed_types'] = 'gif|jpg|png';
+		    $config['max_size'] = '2048000';
+		    $config['max_width']  = '1024';
+		    $config['max_height']  = '1024';
+
+		    $this->load->library('upload', $config);
+		    $this->upload->initialize($config);
+
+
+				if($this->upload->do_upload()){
+					$this->load->model('admin/produk');
+					$data = array('upload_data' => $this->upload->data());
+					$get_name = $this->upload->data();
+					$nama_foto = $get_name['file_name'];
+					
+					$this->produk->tambahproduk($nama_foto);
+
+					$this->data['produk_male'] = $this->produk->get_produk_male();
+					$this->data['produk_female'] = $this->produk->get_produk_female();
+					$this->data['page']  = 'produk';
+					$this->load->view('admin/dashboard', $this->data);
+
+				}
+				else{
+					$this->load->model('admin/kategori');
+					$this->data['tambahproduk'] = $this->kategori->get_kategori();
+					$this->data['page']  = 'tambahproduk2';
+					$this->data['title'] = 'Tambahkan Produk';
+					$this->data['error'] = $this->upload->display_errors();
+					$this->load->view('admin/dashboard', $this->data);
+				}    
+	}
 	public function ubahproduk($id)
 	{
 		if($this->input->post('submit'))
@@ -72,6 +111,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('admin/produk');
 
 		$this->data['ubahproduk'] = $this->produk->get_produk($id);
+		$this->data['kategori'] = $this->produk->get_kategori();
 		$this->data['page']  = 'ubahproduk';
 		$this->data['title'] = 'Ubah Produk';
 		$this->load->view('admin/dashboard', $this->data);
@@ -179,6 +219,7 @@ class Dashboard extends CI_Controller {
 	public function kategori(){
 		$this->load->model('admin/kategori');
 
+		$this->data['jenisKelamin'] = $this->kategori->get_jeniskelamin();
 		$this->data['kategori'] = $this->kategori->get_kategori();
 		$this->data['page']  = 'kategori';
 		$this->data['title'] = 'Edit Kategori Produk';
@@ -191,7 +232,7 @@ class Dashboard extends CI_Controller {
 			$this->kategori->tambahkategori();
 			//$this->do_upload();
 			redirect('admin/dashboard/kategori');
-	}
+		}
 		$this->data['page']  = 'kategori';
 		$this->data['title'] = 'Kategori';
 		$this->load->view('admin/dashboard', $this->data);
@@ -211,6 +252,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('admin/kategori');
 
 		$this->data['ubahkategori'] = $this->kategori->get_kategori_by_id($id);
+		$this->data['jenisKelamin'] = $this->kategori->get_jeniskelamin();
 		$this->data['page']  = 'ubahkategori';
 		$this->data['title'] = 'Ubah Kategori';
 		$this->load->view('admin/dashboard', $this->data);

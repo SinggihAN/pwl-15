@@ -5,6 +5,14 @@ class produk extends CI_Model {
 	{
 		$this->load->database();
 	}
+	function get_produk_all(){
+
+		$this->db->join('kategori','kategori.idKategori = produk.idKategori');
+		$rs = $this->db->get('produk');
+
+		return $rs->result();
+	}
+
 	public function get_produk($id){
 
 		$this->db->where('idProduk',$id);
@@ -17,7 +25,7 @@ class produk extends CI_Model {
 
     $rs = $this->db->get('slide');
 
-    return $rs->row_array();
+    return $rs->result();
   }
 	function get_produk_male()
 	{
@@ -38,7 +46,7 @@ class produk extends CI_Model {
 		return $rs->result();
 	}
 
-	function tambahproduk()
+	function tambahproduk($nama_foto)
 	{
 		$idProduk = $this->input->post('idProduk');
 		$idKategori = $this->input->post('idKategori');
@@ -47,7 +55,6 @@ class produk extends CI_Model {
 		$harga = $this->input->post('harga');
 		$stok = $this->input->post('stok');
 		$deskripsi = $this->input->post('deskripsi');
-		$gambar = $this->input->post('gambar');
 
 		$data = array(
 				'idProduk' => $idProduk,
@@ -57,10 +64,19 @@ class produk extends CI_Model {
 				'harga' => $harga,
 				'stok' => $stok,
 				'deskripsi' => $deskripsi,
-				'gambar' => $gambar
+				'gambar' => $nama_foto
 			);
 			$this->db->insert('produk',$data);
 	}
+
+	public function get_kategori(){
+
+		$this->db->join('jenisKelamin','jenisKelamin.idJenisKelamin = kategori.idJenisKelamin');
+		$rs = $this->db->get('kategori');
+
+		return $rs->result();
+	}
+
 	public function ubahproduk($id){
 
 		$idProduk = $this->input->post('idProduk');

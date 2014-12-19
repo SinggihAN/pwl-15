@@ -3,9 +3,8 @@
     <h3> Tentang Kami</h3>
     
     </div>
-    <div class="content">
-     
-        <h3> Halaman ini berisi tentang online shop kami </h3>
+
+     <div id="product">
         <p>
 Selamat datang di (nama website Anda), terima kasih atas kebaikan hati Anda mengunjungi website kami. 
 </p>
@@ -27,12 +26,10 @@ Admin
 
 www.limabelas.com
       </p>
-        
+       <div class="kosong"></div><div class="kosong"></div> 
      
-          
-    </div>
-    <!--slideshow-->
-<div id="slider">  
+          </div>
+
  
 </div>     
 </div>        

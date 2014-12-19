@@ -14,14 +14,21 @@
 <div class="form-group">
          <label class="col-sm-2 col-sm-2 control-label">ID Jenis Kelamin</label>
          <div class="col-sm-10">
-                              <input type="text" class="form-control" name="idJenisKelamin" value="<?php echo $ubahkategori['idJenisKelamin']; ?>" />
-        </div>
+                <select name="idJenisKelamin" class="form-control">
+                  <?php foreach($jenisKelamin as $j):?>
+                  <option value='<?php echo $j->idJenisKelamin?>'><?php echo $j->jenisKelamin;?> </option>
+                  <?php endforeach ?>
+                </select>
+          </div>
       </div>
     <p>
           <div class="btn-group">
           <?php echo form_submit(array('value'=>'Simpan','class' =>'btn btn-theme', 'name'=>'submit','id'=>'submit')); ?>
-          </div>
-         <button type="reset" class="btn">Batal</button>
+         </div>
+          <div class="btn-group">
+         <a href="<?php echo site_url()?>/admin/dashboard/kategori" class="btn btn-warning">Batal</a>
+         </div>
+      </div>
      </div>
      </p>
 

@@ -4,7 +4,7 @@
   </div>
 </div>
 <div id="product">
-  <form name="form1" method="post" action="" class="form1">
+  
 
   <div class="sidebarmenu">
      <div class="sidebartop"></div>         
@@ -51,29 +51,25 @@
     <div class="center">
 	<div class="search">
     </div>
-        <div class="col-lg-12">
-<table id="" class="display" cellspacing="0" width="100%">
-        <thead>
-          <tr><th></th></tr>
-        </thead>
-        <tfoot>
-          <tr><th></th></tr>
-        </tfoot>
-        <tbody>
-          <tr>
-            <td width="80%">
-          <?php foreach ($kaum_pria as $p): ?>
-            <div class="img_thumb">
-              <a href="<?php echo site_url()?>/home/detailProduk/<?php echo $p->idProduk ?>"><img src="<?php echo base_url()?>assets/img/produk/<?php echo $p->gambar?>"></a>
-              <p align="center"><a href="<?php echo site_url()?>/home/detailProduk/<?php echo $p->idProduk ?>"><?php echo $p->namaProduk?></a> - <?php echo $p->idProduk?><br />
-              Size : <b><?php echo $p->ukuran?></b><br />
-              Harga : <b>IDR <?php echo $p->harga?></b></p>
-            </div>
-          <?php endforeach?>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="col-lg-12">
+        <form class="form-horizontal style-form" method="post"  action="<?php echo site_url()?>/home/tambahpesanan">
+        <label>Kode Produk</label>
+        <input type="text" name="idProduk" class="input-xlarge" value="<?php echo $produk['idProduk']; ?>" /><br />
+        <label>Ukuran</label>
+        <input type="text" name="ukuran" class="input-xlarge" value="" /><br />
+        <label>Jumlah</label> 
+        <input type="text" name="totalBarang" class="input-xlarge" value="" /><br />
+        <label>Nama Lengkap</label>
+        <input type="text" name="namaPelanggan" class="input-xlarge" value="" /><br />
+        <label>Alamat</label> 
+        <textarea name="alamat" class="input-xlarge"></textarea><br />
+        <label>No Telepon</label>
+        <input type="text" name="telepon" class="input-xlarge" value="" /><br />  
+        <label>Kode Pos</label>
+        <input type="text" name="kodePos" class="input-xlarge" value="" /><br />  
+
+        <input type="submit" value="Pesan" class="btn btn-warning" />
+        </form>
     </div>
 </div>
  
@@ -109,4 +105,5 @@
  	<div class="cart_bottom"></div>
 </div>
   </form>
+
 </div>

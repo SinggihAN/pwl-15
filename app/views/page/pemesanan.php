@@ -1,35 +1,29 @@
     <div id="center">
     <div class="title">
-    <h3> Welcome To Freak Online Store </h3>
+        <h3> Cara Pemesanan </h3>
     
     </div>
-	<br></br>
-	<br></br>
-	<br></br>
-    <div class="content">
+ <div id="product">
      
-        <h3> CARA PEMESANAN </h3>
-        <p>
+        <p align="center">
 Kirim email ke contact@limabelas.com
       </p>
-        <p>
+        <p align="center">
 dengan format kode produk, ukuran, jumlah
       </p>
-	  <p>
+	   <p align="center">
 pembayaran trasnfer ke rek BCA
 		</p>
-		 <p>
+		 <p align="center">
 no rek : 1515151515151515
 		</p>
-	  <p>
+	   <p align="center">
 contoh :
 PESAN SP001, XL, 4
 		</p>
-		
-	<div id="slider">  
-		 
-    </div>
-	
-   
-</div>     
+		<br>
+		<br>
+		<br>
+	   <div class="kosong"></div>
+	   </div>
 </div>           

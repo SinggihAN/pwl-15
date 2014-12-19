@@ -1,7 +1,10 @@
-<div id="product">
+<div id="center">
+    <div class="title">
   <h3>Find Your Temptations here</h3>
+  </div>
+</div>
+<div id="product">
   
-  <form name="form1" method="post" action="" class="form1">
 
   <div class="sidebarmenu">
      <div class="sidebartop"></div>         
@@ -49,31 +52,59 @@
 	<div class="search">
     </div>
         <div class="col-lg-12">
+                      <form class="form-horizontal style-form" method="post"  action="<?php echo site_url()?>/home/pesan/<?php echo $detailProduk['idProduk']; ?>">
 <table id="" class="display" cellspacing="0" width="100%">
-        <thead>
-          <tr><th></th><th></th></tr>
-        </thead>
-        <tfoot>
-          <tr><th></th><th></th></tr>
-        </tfoot>
-        <tbody>
           <tr>
-            <td width="300px">
+            <td width="300px" rowspan="3" valign="top">
             <div class="img_detail">
-              <a href=""><img src="<?php echo base_url()?>assets/img/produk/<?php echo $detailProduk['gambar']; ?>"></a>
+              <img src="<?php echo base_url()?>assets/img/produk/<?php echo $detailProduk['gambar']; ?>">
             </div>
             </td>
-            <td>
-              <p align="center"><h4><a href=""><?php echo $detailProduk['namaProduk']; ?></a> - <?php echo $detailProduk['idProduk']; ?></h4><br />
-              Size : <b><?php echo $detailProduk['ukuran']; ?></b><br />
-              Harga : <b>IDR <?php echo $detailProduk['harga']; ?>,00</b></p></td>
+            <td valign="top" colspan="2" height="25px">
+              <div class="detail_produk">
+              <h4><?php echo $detailProduk['namaProduk']; ?></h4>
+              </div>
+              </td>
           </tr>
-        </tbody>
-      </table>
+          <tr>
+            <td valign="top" width="170px">
+              <div class="detail_produk">
+              <p>Kode Produk<br /><br />
+              Stok<br /><br>
+              Ukuran<br /><br /><br />
+              Jumlah<br><br><br />
+              Harga<br /><br />
+              Keterangan
+
+              </p></div>
+            </td>
+            <td valign="top"><div class="detail_produk">
+              <p>
+              <?php echo $detailProduk['idProduk']; ?><br /><br />
+              <?php echo $detailProduk['stok']; ?><br /><br> 
+                <select name="ukuran" class="form-control">
+                  <option value='ukuran'>S</option>
+                  <option value='ukuran'>M</option>
+                  <option value='ukuran'>L</option>
+                  <option value='ukuran'>XL</option>
+                  <option value='ukuran'>XXL</option>
+                </select><br /><br />
+                <input type="text" class="form-control" name="totalBarang" /><br><br>
+                IDR <?php echo $detailProduk['harga']; ?>,00<br /><br />
+                <?php echo $detailProduk['deskripsi']; ?>
+                </p>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="btn-group">
+              <input type="submit" value="Pesan" name="submit" class="btn">
+              </div>
+            </td>
+          </tr>
+      </table></form>
     </div>
- <div class="button">
-	<a href="">Next</a>
-</div>
 </div>
  
  <div class="cart">

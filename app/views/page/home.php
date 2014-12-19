@@ -1,3 +1,4 @@
+
     <div id="center">
     <div class="title">
     <h3> Welcome To Freak Online Store </h3>
@@ -17,10 +18,6 @@ Create your own design here Create your own design here Create your own design h
     </div>
     <!--slideshow-->
 <div id="slider">  
-  <ul>
-    <li><img src="<?php echo base_url()?>assets/img/produk/<?php echo $slider['gambar']; ?>" class="image"></li>
-    
-  </ul>  
+    <img src="<?php echo base_url()?>assets/img/slide/pic1.gif" class="image">
 </div>     
-</div>        
-        
+</div>
